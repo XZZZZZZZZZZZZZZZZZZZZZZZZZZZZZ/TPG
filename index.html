@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>TPG - Automation & Tech Stack</title>
+    <title>TPG - סוכנות לאוטומציה ותשתיות טכנולוגיות</title>
     <style>
         /* איפוס והגדרות בסיס */
         :root {
@@ -17,7 +17,7 @@
             margin: 0;
             padding: 0;
             box-sizing: border-box;
-            font-family: 'Inter', 'Segoe UI', system-ui, sans-serif;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
             scroll-behavior: smooth;
         }
 
@@ -84,10 +84,10 @@
             color: white;
             text-decoration: none;
             margin-right: 30px;
-            font-size: 0.9rem;
+            font-size: 1rem;
             font-weight: 500;
             transition: 0.3s;
-            opacity: 0.7;
+            opacity: 0.8;
         }
 
         nav a:hover {
@@ -97,7 +97,7 @@
 
         /* Hero Section */
         .hero {
-            height: 100vh;
+            min-height: 100vh;
             display: flex;
             flex-direction: column;
             justify-content: center;
@@ -106,11 +106,20 @@
             padding: 0 20px;
         }
 
+        /* אנימציית נפילה לכותרת */
+        @keyframes fallDown {
+            0% { opacity: 0; transform: translateY(-150px) scale(0.9); }
+            60% { opacity: 1; transform: translateY(15px) scale(1.02); }
+            100% { opacity: 1; transform: translateY(0) scale(1); }
+        }
+
         .hero h1 {
-            font-size: clamp(2.5rem, 8vw, 5rem);
-            line-height: 1.1;
+            font-size: 4rem;
+            line-height: 1.2;
             margin-bottom: 20px;
-            animation: fadeInUp 1s ease forwards;
+            font-weight: 800;
+            opacity: 0; /* מתחיל שקוף לאנימציה */
+            animation: fallDown 1s cubic-bezier(0.25, 1, 0.5, 1) forwards;
         }
 
         .hero h1 span {
@@ -119,24 +128,26 @@
         }
 
         .hero p {
-            font-size: 1.2rem;
-            max-width: 700px;
+            font-size: 1.3rem;
+            max-width: 800px;
             color: var(--text-gray);
             margin-bottom: 40px;
-            animation: fadeInUp 1.2s ease forwards;
+            opacity: 0;
+            animation: fadeInUp 1s ease 0.5s forwards; /* מופיע קצת אחרי הכותרת */
         }
 
         .cta-button {
             background: var(--neon-green);
             color: #000;
-            padding: 18px 45px;
-            font-size: 1.1rem;
-            font-weight: 800;
-            border-radius: 50px;
+            padding: 15px 40px;
+            font-size: 1.2rem;
+            font-weight: bold;
+            border-radius: 8px;
             text-decoration: none;
             transition: 0.4s;
             box-shadow: 0 0 15px rgba(0, 255, 136, 0.3);
-            animation: fadeInUp 1.4s ease forwards;
+            opacity: 0;
+            animation: fadeInUp 1s ease 0.8s forwards;
         }
 
         .cta-button:hover {
@@ -146,7 +157,7 @@
 
         /* Services Grid */
         .services {
-            padding: 100px 10%;
+            padding: 100px 20px;
         }
 
         .section-title {
@@ -157,74 +168,103 @@
 
         .services-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-            gap: 25px;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 30px;
+            max-width: 1200px;
+            margin: 0 auto;
         }
 
-        .card {
+        .service-card {
             background: var(--card-bg);
-            padding: 40px;
-            border-radius: 20px;
+            padding: 40px 20px;
+            border-radius: 15px;
             border: 1px solid rgba(255, 255, 255, 0.05);
             transition: 0.4s;
-            position: relative;
-            overflow: hidden;
+            text-align: center;
         }
 
-        .card:hover {
+        .service-card:hover {
             transform: translateY(-10px);
             border-color: var(--neon-green);
-            background: rgba(0, 255, 136, 0.02);
+            box-shadow: 0 10px 20px rgba(0, 255, 136, 0.1);
         }
 
-        .card-icon {
-            font-size: 2.5rem;
+        .service-icon {
+            font-size: 3rem;
             margin-bottom: 20px;
             display: block;
         }
 
-        .card h3 {
+        .service-card h3 {
             margin-bottom: 15px;
-            font-size: 1.4rem;
+            font-size: 1.5rem;
+            color: #ffffff;
         }
 
-        .card p {
+        .service-card p {
             color: var(--text-gray);
-            font-size: 0.95rem;
+            font-size: 1rem;
+            line-height: 1.5;
         }
 
         /* Portfolio / Case Study */
         .portfolio {
-            padding: 100px 10%;
+            padding: 80px 20px;
             background: rgba(255, 255, 255, 0.02);
         }
 
         .case-study {
-            background: var(--card-bg);
-            border-radius: 30px;
-            padding: 50px;
-            display: flex;
-            flex-direction: column;
-            gap: 30px;
+            background-color: var(--card-bg);
+            max-width: 900px;
+            margin: 0 auto;
+            border-radius: 15px;
             border: 1px solid rgba(0, 255, 136, 0.1);
+            padding: 40px;
+            text-align: right;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.3);
         }
 
-        .case-tag {
-            background: rgba(0, 255, 136, 0.1);
+        .case-study h3 {
             color: var(--neon-green);
-            padding: 5px 15px;
-            border-radius: 20px;
-            font-size: 0.8rem;
-            width: fit-content;
+            font-size: 2rem;
+            margin-bottom: 30px;
+            text-align: center;
+        }
+
+        .case-study-content {
+            display: grid;
+            gap: 20px;
+        }
+
+        .case-study-item {
+            background: rgba(8, 10, 12, 0.8);
+            padding: 25px;
+            border-radius: 10px;
+            border-right: 4px solid var(--neon-green);
+        }
+
+        .case-study-item h4 {
+            color: #ffffff;
+            margin-bottom: 10px;
+            font-size: 1.3rem;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .case-study-item p {
+            color: var(--text-gray);
+            line-height: 1.6;
+            font-size: 1.1rem;
         }
 
         /* Contact Section */
         .contact {
-            padding: 100px 10%;
+            padding: 100px 20px;
             text-align: center;
         }
 
-        /* אנימציות */
+        /* אנימציות כלליות לחשיפה בגלילה */
         @keyframes fadeInUp {
             from { opacity: 0; transform: translateY(30px); }
             to { opacity: 1; transform: translateY(0); }
@@ -242,6 +282,8 @@
         }
 
         @media (max-width: 768px) {
+            .hero h1 { font-size: 2.5rem; }
+            .hero p { font-size: 1.1rem; }
             header { padding: 20px 5%; }
             nav { display: none; }
         }
@@ -254,7 +296,7 @@
     </div>
 
     <header>
-        <a href="#" class="logo">TPG.TECH</a>
+        <a href="#" class="logo">TPG</a>
         <nav>
             <a href="#services">שירותים</a>
             <a href="#portfolio">פרויקטים</a>
@@ -263,52 +305,77 @@
     </header>
 
     <section class="hero">
-        <h1>הופכים קוד <br><span>לאוטומציה עסקית</span></h1>
-        <p>סוכנות בוטיק לפיתוח תשתיות טכנולוגיות, אינטגרציות API ומערכות וואטסאפ מתקדמות שמריצות את העסק שלכם לבד.</p>
-        <a href="#contact" class="cta-button">בואו נדבר טכנולוגיה</a>
+        <h1>מכניסים את העסק שלך <span>לאוטומט</span></h1>
+        <p>בניית תשתיות טכנולוגיות ומערכות אוטומציה מורכבות לעסקים. הפתרון השלם לייעול תהליכים, חיסכון בשעות אדם ושליטה מלאה על האופרציה שלכם.</p>
+        <a href="#contact" class="cta-button">לשיחת ייעוץ טכנולוגי</a>
     </section>
 
     <section id="services" class="services reveal">
-        <h2 class="section-title">ארסנל הכלים שלנו</h2>
+        <h2 class="section-title">השירותים שלנו</h2>
         <div class="services-grid">
-            <div class="card">
-                <span class="card-icon">⚡</span>
+            
+            <div class="service-card">
+                <div class="service-icon">🔄</div>
                 <h3>חיבורי API</h3>
-                <p>אנחנו בונים את הגשרים בין כל המערכות שלכם. סנכרון נתונים מלא בזמן אמת ללא טעויות.</p>
+                <p>אינטגרציה חכמה בין מערכות. גורמים לכל התוכנות והאתרים בעסק שלכם לדבר אחד עם השני בסנכרון מושלם.</p>
             </div>
-            <div class="card">
-                <span class="card-icon">🤖</span>
-                <h3>Smart Bots</h3>
-                <p>בוטים מבוססי שרת לוואטסאפ וטלגרם. לא רק תגובות, אלא מערכות ניהול שלמות בתוך הצ'אט.</p>
+
+            <div class="service-card">
+                <div class="service-icon">💬</div>
+                <h3>בוטים לוואטסאפ</h3>
+                <p>פיתוח מערכות תקשורת מתקדמות שעונות, מנתחות, וסוגרות מעגלים מול הלקוחות שלכם 24/7.</p>
             </div>
-            <div class="card">
-                <span class="card-icon">🏗️</span>
-                <h3>Backend Custom</h3>
-                <p>פיתוח שרתים ב-Node.js שמותאמים בדיוק לצרכים המורכבים ביותר שלכם.</p>
+
+            <div class="service-card">
+                <div class="service-icon">📊</div>
+                <h3>אוטומציה ו-CRM</h3>
+                <p>בניית תשתיות לניהול לידים, לקוחות ומכירות, כדי להבטיח שאף פרט לא ייפול לעולם בין הכיסאות.</p>
             </div>
+
+            <div class="service-card">
+                <div class="service-icon">💻</div>
+                <h3>פיתוח שרתים מותאם</h3>
+                <p>כשפתרונות מדף לא מספיקים, אנחנו כותבים קוד מאפס ובונים מערכות שמתאימות בדיוק למידות שלכם.</p>
+            </div>
+
         </div>
     </section>
 
     <section id="portfolio" class="portfolio reveal">
-        <h2 class="section-title">Case Study</h2>
+        <h2 class="section-title">פרויקטים נבחרים</h2>
+        
         <div class="case-study">
-            <span class="case-tag">AI & Commerce</span>
-            <h3>מערכת הדילים של AliExpress</h3>
-            <p>פיתוח בוט אוטונומי שסורק את ה-API של עליאקספרס, מזהה ירידות מחירים קיצוניות, מעבד את הנתונים ומפיץ הודעות מעוצבות לאלפי משתמשים בו-זמנית בוואטסאפ ובטלגרם.</p>
-            <div style="color: var(--neon-green); font-weight: bold;">תוצאה: 100% אוטומציה. 0% התערבות ידנית.</div>
+            <h3>מכונת הדילים האוטומטית (AliExpress)</h3>
+            <div class="case-study-content">
+                
+                <div class="case-study-item">
+                    <h4>🔴 האתגר</h4>
+                    <p>ניהול קהילת צרכנות גדולה דורש איתור מבצעים חמים ברשת, שמירת תמונות, יצירת קישורי שותפים מותאמים, ושיגור ידני למספר פלטפורמות במקביל – תהליך ששואב שעות עבודה ארוכות ומעכב פרסום של דילים רגישים לזמן.</p>
+                </div>
+
+                <div class="case-study-item">
+                    <h4>🟢 הפתרון של TPG</h4>
+                    <p>פיתחנו שרת ייעודי שמתממשק ישירות למערכות של עליאקספרס. השרת סורק ושואב את הדילים הרלוונטיים, אורז אותם להודעה גרפית ומעוצבת כולל קישורים, ומשגר אותם אוטומטית ובו-זמנית לקבוצת הוואטסאפ ולערוץ הקהילה.</p>
+                </div>
+
+                <div class="case-study-item">
+                    <h4>📈 התוצאה</h4>
+                    <p>מערכת שעובדת 100% על אוטומט וללא שום התערבות אנושית. אפס טעויות אנוש, חיסכון של עשרות שעות עבודה בחודש, פרסום מיידי של הדילים בזמן אמת, ומקסום משמעותי של פוטנציאל המכירות ועמלות השותפים.</p>
+                </div>
+
+            </div>
         </div>
     </section>
 
     <section id="contact" class="contact reveal">
         <h2 class="section-title">מוכנים להתקדם?</h2>
         <p style="color: var(--text-gray); margin-bottom: 30px;">השאירו פרטים ונחזור אליכם לאפיון טכנולוגי ראשוני.</p>
-        <div style="background: var(--card-bg); max-width: 500px; margin: 0 auto; padding: 40px; border-radius: 20px; border: 1px solid var(--neon-green);">
-            <p>הטופס בבנייה... בקרוב יחובר לשרת שלנו!</p>
+        <div style="background: var(--card-bg); max-width: 500px; margin: 0 auto; padding: 40px; border-radius: 15px; border: 1px solid var(--neon-green);">
+            <p>הטופס בבנייה... בקרוב נחבר אותו לשרת שלנו!</p>
         </div>
     </section>
 
     <script>
-        // אנימציית גלילה (Reveal elements on scroll)
         function reveal() {
             var reveals = document.querySelectorAll(".reveal");
             for (var i = 0; i < reveals.length; i++) {
@@ -320,10 +387,7 @@
                 }
             }
         }
-
         window.addEventListener("scroll", reveal);
-
-        // הפעלת האנימציה הראשונה בטעינה
         reveal();
     </script>
 
