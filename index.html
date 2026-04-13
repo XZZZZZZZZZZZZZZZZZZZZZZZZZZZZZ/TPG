@@ -20,16 +20,18 @@
             line-height: 1.6;
         }
 
-        /* עיצוב אזור הגיבור - המסך הראשון */
+        /* ==============================
+           אזור הגיבור (Hero Section)
+           ============================== */
         .hero {
-            min-height: 100vh; /* תופס את כל גובה המסך */
+            min-height: 100vh;
             display: flex;
             flex-direction: column;
-            justify-content: center; /* ממרכז את התוכן */
+            justify-content: center;
             align-items: center;
             text-align: center;
             padding: 0 20px;
-            background: radial-gradient(circle at center, #161b22 0%, #0d1117 100%); /* אפקט תאורה עדין ברקע */
+            background: radial-gradient(circle at center, #161b22 0%, #0d1117 100%);
         }
 
         .hero h1 {
@@ -38,7 +40,6 @@
             font-weight: 800;
         }
 
-        /* הדגשה בצבע ירוק-ניאון לכותרת */
         .hero h1 span {
             color: #00ff88; 
         }
@@ -47,10 +48,9 @@
             font-size: 1.3rem;
             max-width: 800px;
             margin-bottom: 40px;
-            color: #8b949e; /* טקסט אפור בהיר לתת-כותרת */
+            color: #8b949e;
         }
 
-        /* עיצוב כפתור ההנעה לפעולה */
         .cta-button {
             background-color: #00ff88;
             color: #0d1117;
@@ -64,10 +64,63 @@
             transition: all 0.3s ease;
         }
 
-        /* אפקט מעבר עכבר על הכפתור */
         .cta-button:hover {
             transform: translateY(-5px);
             box-shadow: 0 10px 20px rgba(0, 255, 136, 0.3);
+        }
+
+        /* ==============================
+           אזור השירותים (Services)
+           ============================== */
+        .services {
+            padding: 80px 20px;
+            background-color: #0d1117;
+            text-align: center;
+        }
+
+        .services h2 {
+            font-size: 2.5rem;
+            margin-bottom: 50px;
+            color: #ffffff;
+        }
+
+        .services-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 30px;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .service-card {
+            background-color: #161b22;
+            padding: 40px 20px;
+            border-radius: 15px;
+            border: 1px solid #30363d;
+            transition: all 0.3s ease;
+        }
+
+        .service-card:hover {
+            transform: translateY(-10px);
+            border-color: #00ff88;
+            box-shadow: 0 10px 20px rgba(0, 255, 136, 0.1);
+        }
+
+        .service-icon {
+            font-size: 3rem;
+            margin-bottom: 20px;
+        }
+
+        .service-card h3 {
+            font-size: 1.5rem;
+            margin-bottom: 15px;
+            color: #ffffff;
+        }
+
+        .service-card p {
+            color: #8b949e;
+            font-size: 1rem;
+            line-height: 1.5;
         }
 
         /* התאמה למסכי טלפון (מובייל) */
@@ -87,6 +140,36 @@
         <h1>מכניסים את העסק שלך <span>לאוטומט</span></h1>
         <p>בניית תשתיות טכנולוגיות ומערכות אוטומציה מורכבות לעסקים. הפתרון השלם לייעול תהליכים, חיסכון בשעות אדם ושליטה מלאה על האופרציה שלכם.</p>
         <a href="#contact" class="cta-button">לשיחת ייעוץ טכנולוגי</a>
+    </section>
+    <section class="services">
+        <h2>השירותים שלנו</h2>
+        <div class="services-grid">
+            
+            <div class="service-card">
+                <div class="service-icon">🔄</div>
+                <h3>חיבורי API</h3>
+                <p>אינטגרציה חכמה בין מערכות. גורמים לכל התוכנות והאתרים בעסק שלכם לדבר אחד עם השני בסנכרון מושלם.</p>
+            </div>
+
+            <div class="service-card">
+                <div class="service-icon">💬</div>
+                <h3>בוטים לוואטסאפ</h3>
+                <p>פיתוח מערכות תקשורת מתקדמות שעונות, מנתחות, וסוגרות מעגלים מול הלקוחות שלכם 24/7.</p>
+            </div>
+
+            <div class="service-card">
+                <div class="service-icon">📊</div>
+                <h3>אוטומציה ו-CRM</h3>
+                <p>בניית תשתיות לניהול לידים, לקוחות ומכירות, כדי להבטיח שאף פרט לא ייפול לעולם בין הכיסאות.</p>
+            </div>
+
+            <div class="service-card">
+                <div class="service-icon">💻</div>
+                <h3>פיתוח שרתים מותאם</h3>
+                <p>כשפתרונות מדף לא מספיקים, אנחנו כותבים קוד מאפס ובונים מערכות שמתאימות בדיוק למידות שלכם.</p>
+            </div>
+
+        </div>
     </section>
     </body>
 </html>
