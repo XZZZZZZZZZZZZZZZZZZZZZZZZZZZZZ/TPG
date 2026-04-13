@@ -1,7 +1,7 @@
 {
-  "name": "tpg-agency-server",
+  "name": "tpg-website",
   "version": "1.0.0",
-  "description": "TPG Automation Agency Server",
+  "description": "TPG Automation Agency Website",
   "main": "server.js",
   "scripts": {
     "start": "node server.js"
