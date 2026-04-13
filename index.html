@@ -123,6 +123,66 @@
             line-height: 1.5;
         }
 
+        /* ==============================
+           אזור פרויקטים (Portfolio / Case Study)
+           ============================== */
+        .portfolio {
+            padding: 80px 20px;
+            background-color: #161b22; /* רקע טיפה יותר בהיר ליצירת הפרדה */
+            text-align: center;
+        }
+
+        .portfolio h2 {
+            font-size: 2.5rem;
+            margin-bottom: 50px;
+            color: #ffffff;
+        }
+
+        .case-study {
+            background-color: #0d1117;
+            max-width: 900px;
+            margin: 0 auto;
+            border-radius: 15px;
+            border: 1px solid #30363d;
+            padding: 40px;
+            text-align: right;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.3);
+        }
+
+        .case-study h3 {
+            color: #00ff88;
+            font-size: 2rem;
+            margin-bottom: 30px;
+            text-align: center;
+        }
+
+        .case-study-content {
+            display: grid;
+            gap: 20px;
+        }
+
+        .case-study-item {
+            background: #161b22;
+            padding: 25px;
+            border-radius: 10px;
+            border-right: 4px solid #00ff88; /* פס ירוק בצד להדגשה (מותאם לעברית מימין לשמאל) */
+        }
+
+        .case-study-item h4 {
+            color: #ffffff;
+            margin-bottom: 10px;
+            font-size: 1.3rem;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .case-study-item p {
+            color: #8b949e;
+            line-height: 1.6;
+            font-size: 1.1rem;
+        }
+
         /* התאמה למסכי טלפון (מובייל) */
         @media (max-width: 768px) {
             .hero h1 {
@@ -130,6 +190,12 @@
             }
             .hero p {
                 font-size: 1.1rem;
+            }
+            .case-study {
+                padding: 20px;
+            }
+            .case-study h3 {
+                font-size: 1.5rem;
             }
         }
     </style>
@@ -169,6 +235,31 @@
                 <p>כשפתרונות מדף לא מספיקים, אנחנו כותבים קוד מאפס ובונים מערכות שמתאימות בדיוק למידות שלכם.</p>
             </div>
 
+        </div>
+    </section>
+    <section class="portfolio">
+        <h2>פרויקטים נבחרים</h2>
+        
+        <div class="case-study">
+            <h3>מכונת הדילים האוטומטית (AliExpress)</h3>
+            <div class="case-study-content">
+                
+                <div class="case-study-item">
+                    <h4>🔴 האתגר</h4>
+                    <p>ניהול קהילת צרכנות גדולה דורש איתור מבצעים חמים ברשת, שמירת תמונות, יצירת קישורי שותפים מותאמים, ושיגור ידני למספר פלטפורמות במקביל – תהליך ששואב שעות עבודה ארוכות ומעכב פרסום של דילים רגישים לזמן.</p>
+                </div>
+
+                <div class="case-study-item">
+                    <h4>🟢 הפתרון של TPG</h4>
+                    <p>פיתחנו שרת ייעודי שמתממשק ישירות למערכות של עליאקספרס. השרת סורק ושואב את הדילים הרלוונטיים, אורז אותם להודעה גרפית ומעוצבת כולל קישורים, ומשגר אותם אוטומטית ובו-זמנית לקבוצת הוואטסאפ ולערוץ הקהילה.</p>
+                </div>
+
+                <div class="case-study-item">
+                    <h4>📈 התוצאה</h4>
+                    <p>מערכת שעובדת 100% על אוטומט וללא שום התערבות אנושית. אפס טעויות אנוש, חיסכון של עשרות שעות עבודה בחודש, פרסום מיידי של הדילים בזמן אמת, ומקסום משמעותי של פוטנציאל המכירות ועמלות השותפים.</p>
+                </div>
+
+            </div>
         </div>
     </section>
     </body>
