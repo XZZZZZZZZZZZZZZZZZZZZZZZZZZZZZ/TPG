@@ -342,6 +342,13 @@
             box-shadow: 0 5px 15px rgba(0, 255, 136, 0.4);
         }
 
+        .submit-btn:disabled {
+            background: #555;
+            cursor: not-allowed;
+            transform: none;
+            box-shadow: none;
+        }
+
         /* Footer */
         footer {
             padding: 40px 20px;
@@ -452,10 +459,10 @@
         <h2 class="section-title">מוכנים להתקדם?</h2>
         <p style="color: var(--text-gray); margin-bottom: 30px;">השאירו פרטים ונחזור אליכם לאפיון טכנולוגי ראשוני.</p>
         
-        <form class="contact-form" action="https://formsubmit.co/tzv055678@gmail.com" method="POST">
+        <form class="contact-form" id="ajax-form" action="https://formsubmit.co/ajax/tzv055678@gmail.com" method="POST">
+            
             <input type="hidden" name="_subject" value="ליד חדש מהאתר של TPG!">
             <input type="hidden" name="_captcha" value="false">
-            <input type="hidden" name="_template" value="table">
 
             <div class="form-group">
                 <label>שם מלא</label>
@@ -469,7 +476,7 @@
                 <label>איך נוכל לעזור?</label>
                 <textarea rows="4" name="הודעה" placeholder="ספר לנו קצת על הפרויקט..." required></textarea>
             </div>
-            <button type="submit" class="submit-btn">שלח הודעה</button>
+            <button type="submit" class="submit-btn" id="submit-btn">שלח הודעה</button>
         </form>
     </section>
 
@@ -478,6 +485,7 @@
     </footer>
 
     <script>
+        // אנימציות חשיפה
         function reveal() {
             var reveals = document.querySelectorAll(".reveal");
             for (var i = 0; i < reveals.length; i++) {
@@ -491,6 +499,40 @@
         }
         window.addEventListener("scroll", reveal);
         reveal();
+
+        // קוד הקסם ששולח את הטופס בשקט ומציג הודעת הצלחה
+        const form = document.getElementById('ajax-form');
+        form.addEventListener('submit', function(e) {
+            e.preventDefault(); // מונע מהדפדפן לעבור לדף של FormSubmit
+            
+            const btn = document.getElementById('submit-btn');
+            btn.innerText = 'שולח...';
+            btn.disabled = true;
+
+            const formData = new FormData(form);
+
+            fetch(form.action, {
+                method: 'POST',
+                body: formData,
+                headers: {
+                    'Accept': 'application/json'
+                }
+            })
+            .then(response => response.json())
+            .then(data => {
+                if (data.success) {
+                    // ברגע שהשליחה הצליחה - מחליפים את הטופס בטקסט תודה מהמם
+                    form.innerHTML = '<h3 style="color: var(--neon-green); margin-top: 20px; font-size: 1.5rem;">✅ ההודעה נשלחה בהצלחה!</h3><p style="color: white; font-size: 1.1rem; margin-top: 10px;">קיבלנו את הפרטים שלך ונחזור אליך בהקדם.</p>';
+                } else {
+                    btn.innerText = 'שגיאה. נסה שוב';
+                    btn.disabled = false;
+                }
+            })
+            .catch(error => {
+                btn.innerText = 'שגיאה בשליחה. נסה שוב';
+                btn.disabled = false;
+            });
+        });
     </script>
 
 </body>
